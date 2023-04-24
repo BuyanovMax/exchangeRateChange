@@ -1,33 +1,37 @@
 package com.example.exchangeratechange.coursework;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-//@RestController
-//@RequestMapping("/employee")
-//public class EmployeeController {
-//    private final EmployeeService employeeService;
-//
-//
-//    public EmployeeController(EmployeeService employeeService) {
-//        this.employeeService = employeeService;
-//    }
-//    @GetMapping(path = "/add")
-//    public String addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-//        employeeService.addEmployee(firstName,lastName);
-//        return "Employee added";
-//    }
-//    @GetMapping(path = "/remove")
-//    public String removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-//        employeeService.addEmployee(firstName,lastName);
-//        return "Employee remove";
-//    }
-//    @GetMapping(path = "/find")
-//    public String findEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-//        employeeService.addEmployee(firstName,lastName);
-//        return "Employee find";
-//    }
-//
-//}
+import java.util.ArrayList;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+    private final EmployeeService employeeService;
+
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping(path = "/add")
+    public Employee addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return this.employeeService.createEmployee(firstName, lastName);
+    }
+
+    @GetMapping(path = "/remove")
+    public Employee removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return employeeService.removeEmployee(firstName, lastName);
+
+    }
+
+    @GetMapping(path = "/find")
+    public Employee findEmployee(@RequestParam String firstName, @RequestParam String lastName) {
+        return employeeService.findEmployee(firstName, lastName);
+    }
+
+    @GetMapping(path = "/allEmployees")
+    public ArrayList<Employee> showAllEmployees() {
+        return this.employeeService.showAllEmployees();
+    }
+}
