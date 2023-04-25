@@ -1,6 +1,7 @@
 package com.example.exchangeratechange.coursework;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public interface EmployeeService {
     Employee createEmployee(String firstName,String lastName);
@@ -9,5 +10,5 @@ public interface EmployeeService {
 
     Employee findEmployee(String firstname,String lastName);
 
-    ArrayList<Employee> showAllEmployees();
+    Collection<Employee> showAllEmployees();
 }

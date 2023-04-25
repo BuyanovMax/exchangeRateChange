@@ -3,6 +3,7 @@ package com.example.exchangeratechange.coursework;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 @RestController
 @RequestMapping("/employee")
@@ -31,7 +32,7 @@ public class EmployeeController {
     }
 
     @GetMapping(path = "/allEmployees")
-    public ArrayList<Employee> showAllEmployees() {
+    public Collection<Employee> showAllEmployees() {
         return this.employeeService.showAllEmployees();
     }
 }
