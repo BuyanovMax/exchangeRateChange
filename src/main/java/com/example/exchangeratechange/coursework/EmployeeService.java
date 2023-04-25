@@ -1,10 +1,14 @@
 package com.example.exchangeratechange.coursework;
 
-//public interface EmployeeService {
-//    void addEmployee(String firstname,String lastName);
-//
-//    void removeEmployee(String firstname,String lastName);
-//
-//    void findEmployee(String firstname,String lastName);
-//
-//}
+import java.util.ArrayList;
+import java.util.Collection;
+
+public interface EmployeeService {
+    Employee createEmployee(String firstName,String lastName);
+
+    Employee removeEmployee(String firstname,String lastName);
+
+    Employee findEmployee(String firstname,String lastName);
+
+    Collection<Employee> showAllEmployees();
+}
